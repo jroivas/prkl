@@ -10,7 +10,7 @@ int _db_open(DB *db, DB_TXN *txnid, const char *file, const char *database, DBTY
 {
 }
 
-int create_db(DB **database, DB_ENV *database_env, uint32_t flags)
+int db_create(DB **database, DB_ENV *database_env, uint32_t flags)
 {
     if (database == NULL) return EINVAL;
 

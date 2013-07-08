@@ -1,0 +1,4 @@
+DB5_0 {
+   global: *;
+   local: *;
+};

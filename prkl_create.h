@@ -3,6 +3,6 @@
 
 #include "prkl_types.h"
 
-int create_db(DB **database, DB_ENV *database_env, uint32_t flags);
+int db_create(DB **database, DB_ENV *database_env, uint32_t flags);
 
 #endif

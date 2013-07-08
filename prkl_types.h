@@ -30,7 +30,7 @@ struct _DB {
 };
 
 struct _DB_ENV {
-    int (*txn_begin)(DB_ENV *env, DB_TXN *parent, DB_TXN **tid, u_int32_t flags);
+    int (*txn_begin)(DB_ENV *env, DB_TXN *parent, DB_TXN **tid, uint32_t flags);
 
     struct _PRKL_DATA_ENV *_internal;
 };
