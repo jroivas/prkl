@@ -44,7 +44,7 @@ main()
     if ((ret = dbp->get(dbp, NULL, &key, &data, 0)) == 0) {
         printf("db: %s: key retrieved: data was %s.\n",
             (char *)key.data, (char *)data.data);
-    } else {
+    } else {
         dbp->err(dbp, ret, "DB->get");
         goto err;
     }
@@ -61,7 +61,7 @@ main()
     if ((ret = dbp->get(dbp, NULL, &key, &data, 0)) == 0) {
         printf("db: %s: key retrieved: data was %s.\n",
             (char *)key.data, (char *)data.data);
-    } else {
+    } else {
         dbp->err(dbp, ret, "DB->get");
     }
 
