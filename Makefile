@@ -2,7 +2,10 @@
 CFLAGS=-fPIC -I../liblmdb/
 OBJECTS=prkl_create.o prkl_error.o
 
-all: prkl.so compability
+all: prkl.so compability tests
+
+mdblib:
+	./scripts/build_mdb.sh
 
 compability: libdb-5.1.so
 
@@ -21,5 +24,17 @@ libdb-5.1.so: $(OBJECTS)
 	ln -sf libdb-5.1.so.0 libdb-5.1.so
 
 clean:
-	rm -rf *.o *.so*
+	rm -rf *.o libdb*.so* libprkl*.so* data.mdb lock.mdb
+	@make -C test clean
 
+tests: apitests abitests
+
+apitests: prkl.so
+	@make -C test run_api_test
+
+abitests: compability
+	@echo "*********************************"
+	@echo "***** These tests will fail *****"
+	@echo "*********************************"
+	@make -C test run_abi_test || true
+	@echo "*********************************"

@@ -1,14 +1,20 @@
 
-test: test.o
+all: abi_test api_test
+
+abi_test: test.o
 	gcc -o $@ $^ -ldb
 
-rebuild_test: test.c
+api_test: test.c
 	gcc -o $@ $^ -I.. -L.. -llmdb -lprkl
 
 test.o: test.c
 
 clean:
-	rm -f *.o test
+	rm -f *.o test api_test abi_test data.mdb lock.mdb
 
-wrappertest: test
-	LD_LIBRARY_PATH=.. ./test
+run_api_test: api_test
+	LD_LIBRARY_PATH=.. ./api_test
+
+run_abi_test: abi_test
+	LD_LIBRARY_PATH=.. ./abi_test
+

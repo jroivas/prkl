@@ -8,3 +8,5 @@ Licence
 -------
 
 Licenced under BSD license.
+
+Exception: test/test.c see test/LICENSE
